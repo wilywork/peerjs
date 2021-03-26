@@ -110,6 +110,11 @@ export class Negotiator {
             "iceConnectionState changed to disconnected on the connection with " +
             peerId
           );
+          this.connection.emit(
+            ConnectionEventType.Error,
+            new Error("Connection to " + peerId + " closed.")
+          );
+          this.connection.close();
           break;
         case "completed":
           peerConnection.onicecandidate = util.noop;
