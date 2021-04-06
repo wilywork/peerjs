@@ -123,8 +123,9 @@ export class Negotiator {
           peerConnection.onicecandidate = util.noop;
           break;
       }
-
-      this.connection.emit(ConnectionEventType.IceStateChanged, peerConnection.iceConnectionState);
+      if (peerConnection.iceConnectionState != "disconnected") {
+        this.connection.emit(ConnectionEventType.IceStateChanged, peerConnection.iceConnectionState);
+      }
     };
 
     // DATACONNECTION.
