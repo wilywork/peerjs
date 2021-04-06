@@ -114,6 +114,9 @@ export class Negotiator {
             ConnectionEventType.Error,
             new Error("Connection to " + peerId + " closed.")
           );
+          if (this.connection.peerConnection) {
+            this.connection.peerConnection.close();
+          }
           this.connection.close();
           break;
         case "completed":
