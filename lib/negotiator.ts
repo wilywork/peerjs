@@ -46,7 +46,7 @@ export class Negotiator {
   private _startPeerConnection(): RTCPeerConnection {
     logger.log("Creating RTCPeerConnection.");
 
-    const peerConnection = new RTCPeerConnection(this.connection.provider.options.config);
+    const peerConnection = new RTCPeerConnection(this.connection.provider.options.config, this.connection.provider.options.configOptional);
 
     this._setupListeners(peerConnection);
 

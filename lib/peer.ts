@@ -27,6 +27,7 @@ class PeerOptions implements PeerJSOption {
   secure?: boolean;
   pingInterval?: number;
   logFunction?: (logLevel: LogLevel, ...rest: any[]) => void;
+  configOptional?: any;
 }
 
 /**
